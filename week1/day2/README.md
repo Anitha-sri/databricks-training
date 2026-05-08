@@ -1,133 +1,162 @@
-# SQL Employee Database Practice
+# Week 1 - Day 2 SQL Practice
 
 ## Overview
 
-This repository contains SQL practice queries using an Employee database.
-The queries cover beginner to intermediate SQL concepts including filtering, grouping, sorting, aggregate functions, logical operators, and pattern matching.
+Today I practiced SQL queries using different database tables and improved my understanding of SQL concepts from basic to advanced levels.
 
-The practice was completed using MySQL and DB-Fiddle.
+The practice included working with:
+
+- `practice.sql`
+- `schema.sql`
+- `queries.sql`
+
+I used MySQL and DB-Fiddle to execute and test all queries.
 
 ---
 
-## Database Used
+## Files Included
 
-### Employees Table
+### `practice.sql`
 
-The database contains employee details such as:
+This file contains:
 
-* Employee ID
-* Employee Name
-* Department
-* Salary
-* City
-* Experience
+- Employee table creation
+- Sample employee data
+- SQL queries from 1–55
+
+Topics covered:
+
+- SELECT
+- WHERE
+- GROUP BY
+- HAVING
+- TOP / LIMIT
+- DISTINCT
+- Comparison Operators
+- Logical Operators
+- IN & NOT IN
+- BETWEEN
+- LIKE Operator
+
+---
+
+### `schema.sql`
+
+This file contains:
+
+- Department table creation
+- Employee table creation
+- Project table creation
+- Sample data insertion
+- Additional test data for joins and subqueries
+
+Tables used:
+
+- Department
+- Employee
+- Project
+
+---
+
+### `queries.sql`
+
+This file contains SQL queries from 15–65.
+
+Topics covered:
+
+- Aggregate Queries
+- HAVING Clause Queries
+- ORDER BY Queries
+- JOIN Queries
+- Subquery Queries
+- Advanced SQL Queries
 
 ---
 
 ## Topics Covered
 
-### SELECT Queries
+### Basic SQL Queries
 
-* Display employee details
-* Retrieve selected columns
-* Filter department-wise data
+- Retrieving employee details
+- Filtering records
+- Sorting data
 
-### WHERE Clause
+### Aggregate Functions
 
-* Salary filtering
-* City-based filtering
-* Experience conditions
+- SUM()
+- AVG()
+- MIN()
+- MAX()
+- COUNT()
 
-### GROUP BY Queries
+### GROUP BY & HAVING
 
-* Department-wise salary analysis
-* Employee count by city
-* Aggregate calculations
+- Department-wise analysis
+- Aggregate filtering
 
-### HAVING Clause
+### JOIN Operations
 
-* Filter grouped records
-* Salary-based department analysis
+- INNER JOIN
+- LEFT JOIN
+- Multi-table queries
 
-### TOP / LIMIT Queries
+### Subqueries
 
-* Highest paid employees
-* Most experienced employees
+- Nested SELECT statements
+- Salary comparisons
+- Department-based filtering
 
-### DISTINCT Queries
+### Advanced SQL Queries
 
-* Unique departments
-* Unique cities
-* Unique salary values
+- Highest salary per department
+- Employees above average salary
+- Project-based analysis
+- Date filtering queries
 
-### Comparison Operators
+### SQL Operators
 
-* Greater than / Less than
-* Equal to / Not equal to
-
-### Logical Operators
-
-* AND
-* OR
-* NOT
-
-### IN & NOT IN
-
-* Multiple value filtering
-
-### BETWEEN Operator
-
-* Range-based filtering
-
-### LIKE Operator
-
-* Pattern matching
-* Starts with / Ends with / Contains
+- Logical Operators
+- Comparison Operators
+- BETWEEN
+- IN / NOT IN
+- LIKE Operator
 
 ---
 
-## Total Queries
+## Total Queries Practiced
 
-| Section              | Queries |
-| -------------------- | ------- |
-| SELECT               | 5       |
-| WHERE                | 5       |
-| GROUP BY             | 5       |
-| HAVING               | 5       |
-| TOP / LIMIT          | 5       |
-| DISTINCT             | 5       |
-| Comparison Operators | 5       |
-| Logical Operators    | 5       |
-| IN & NOT IN          | 5       |
-| BETWEEN              | 5       |
-| LIKE Operator        | 5       |
+| File | Queries |
+|---|---|
+| practice.sql | 55 |
+| queries.sql | 50 |
 
-### Total SQL Queries: 55
+### Total SQL Queries Practiced: 106
 
 ---
 
 ## Tools Used
 
-* MySQL
-* DB-Fiddle
-* GitHub
+- MySQL
+- DB-Fiddle
+
 
 ---
 
-## Learning Outcomes
+## Learnings
 
-Through this practice, I learned:
+Through today’s practice, I learned:
 
-* Writing SQL queries efficiently
-* Filtering records using conditions
-* Performing aggregate calculations
-* Grouping and sorting data
-* Using logical and comparison operators
-* Pattern matching with LIKE
-* Working with real-world employee datasets
+- Writing efficient SQL queries
+- Working with multiple database tables
+- Using JOIN operations
+- Writing nested subqueries
+- Applying aggregate functions
+- Filtering grouped records using HAVING
+- Using SQL operators effectively
+- Solving real-world SQL problems
 
 ---
 
 ## Conclusion
 
-This SQL practice improved my understanding of database querying concepts and strengthened my ability to solve SQL problems using different query techniques.
+Today’s SQL practice helped me improve my understanding of database concepts and strengthened my ability to write and manage SQL queries from beginner to advanced level.
