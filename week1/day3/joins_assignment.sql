@@ -1,3 +1,38 @@
+--created tables
+  CREATE TABLE students (
+    student_id INT,
+    student_name VARCHAR(100),
+    email VARCHAR(100)
+);
+
+CREATE TABLE courses (
+    course_id INT,
+    course_name VARCHAR(100),
+    instructor_id INT
+);
+
+-- Insert into students
+INSERT INTO students VALUES
+(1,'Alice Johnson','alice@email.com'),
+(2,'Bob Smith','bob@email.com'),
+(3,'Charlie Brown','charlie@email.com'),
+(4,'Diana Prince','diana@email.com'),
+(5,'Ethan Hunt','ethan@email.com');
+
+-- Insert into courses
+INSERT INTO courses VALUES
+(101,'SQL Basics',1),
+(102,'Python Fundamentals',2),
+(103,'Data Analytics',NULL),
+(104,'Cloud Computing',3),
+(105,'Machine Learning',NULL);
+
+
+--=================
+--solutions
+--=================
+
+
 -- Q1: Display all students and the courses they are enrolled in
 SELECT s.student_id,s.student_name,c.course_name FROM students s LEFT JOIN enrollments e ON s.student_id=e.student_id LEFT JOIN courses c ON e.course_id=c.course_id;
 -- Q2: Find all courses that currently have no students enrolled
