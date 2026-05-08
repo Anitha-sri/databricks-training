@@ -1,14 +1,30 @@
 --created tables
+
+--Students
   CREATE TABLE students (
     student_id INT,
     student_name VARCHAR(100),
     email VARCHAR(100)
 );
 
+--Courses
 CREATE TABLE courses (
     course_id INT,
     course_name VARCHAR(100),
     instructor_id INT
+);
+
+--instructors
+CREATE TABLE instructors (
+    instructor_id INT,
+    instructor_name VARCHAR(100)
+);
+--enrollements
+CREATE TABLE enrollments (
+    enrollment_id INT,
+    student_id INT,
+    course_id INT,
+    enrollment_date DATE
 );
 
 -- Insert into students
@@ -26,6 +42,19 @@ INSERT INTO courses VALUES
 (103,'Data Analytics',NULL),
 (104,'Cloud Computing',3),
 (105,'Machine Learning',NULL);
+
+-- Insert into instructors
+INSERT INTO instructors VALUES
+(1,'John Miller'),
+(2,'Sarah Lee'),
+(3,'David Wilson');
+
+-- Insert into enrollments
+INSERT INTO enrollments VALUES
+(1,1,101,'2026-01-10'),
+(2,2,102,'2026-01-11'),
+(3,3,101,'2026-01-12'),
+(4,4,104,'2026-01-13');
 
 
 --=================
