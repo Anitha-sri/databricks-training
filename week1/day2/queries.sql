@@ -1,184 +1,141 @@
 --++++++++++++++++++++++++
--- SELECT Queries
+-- Aggregate Queries(5)
 --++++++++++++++++++++++++
 
---1. Display all employee details.
-SELECT * FROM Employees;
---2. Display only employee names and salaries.
-SELECT emp_name, salary FROM Employees;
---3. Display employee names and departments.
-SELECT emp_name, department FROM Employees;
---4. Display all employees from the IT department.
-SELECT * FROM Employees WHERE department = 'IT';
---5. Display employee names and experience.
-SELECT emp_name, experience FROM Employees;
-
-
---++++++++++++++++++++++++
--- WHERE Queries
---++++++++++++++++++++++++
-
---6. Find employees with salary greater than 70000.
-SELECT * FROM Employees WHERE salary > 70000;
---7. Find employees working in Hyderabad.
-SELECT * FROM Employees WHERE city = 'Hyderabad';
---8. Find employees with experience less than 4 years.
-SELECT * FROM Employees WHERE experience < 4;
---9. Find employees from Finance department.
-SELECT * FROM Employees WHERE department = 'Finance';
---10. Find employees whose salary is equal to 52000.
-SELECT * FROM Employees WHERE salary = 52000;
+--15Q) Find minimum experience department-wise.
+SELECT department, MIN(experience) AS min_experience FROM Employees GROUP BY department;
+--16Q) Find departments having more than 3 employees.
+SELECT department, COUNT(*) AS employee_count FROM Employees GROUP BY department HAVING COUNT(*) > 3;
+--17Q) Find departments where average salary is greater than 60000.
+SELECT department, AVG(salary) AS average_salary FROM Employees GROUP BY department HAVING AVG(salary) > 60000;
+--18Q) Find cities having more than 2 employees.
+SELECT city, COUNT(*) AS employee_count FROM Employees GROUP BY city HAVING COUNT(*) > 2;
+--19Q) Find departments where total salary is greater than 200000.
+SELECT department, SUM(salary) AS total_salary FROM Employees GROUP BY department HAVING SUM(salary) > 200000;
+--20Q) Find departments where maximum salary is above 90000.
+SELECT department, MAX(salary) AS max_salary FROM Employees GROUP BY department HAVING MAX(salary) > 90000;
 
 
 --++++++++++++++++++++++++
--- GROUP BY Queries
+-- TOP Queries(5)
 --++++++++++++++++++++++++
 
---11. Find total salary department-wise.
-SELECT department, SUM(salary) AS total_salary FROM Employees
-GROUP BY department;
---12. Find average salary in each department.
-SELECT department, AVG(salary) AS average_salary FROM Employees
-GROUP BY department;
---13. Count employees in each city.
-SELECT city, COUNT(*) AS employee_count FROM Employees
-GROUP BY city;
---14. Find maximum salary in each department.
-SELECT department, MAX(salary) AS max_salary FROM Employees
-GROUP BY department;
---15. Find minimum experience department-wise.
-SELECT department, MIN(experience) AS min_experience FROM Employees
-GROUP BY department;
-
-
---++++++++++++++++++++++++
--- HAVING Queries
---++++++++++++++++++++++++
-
---16. Find departments having more than 3 employees.
-SELECT department, COUNT(*) AS employee_count FROM Employees GROUP BY department
-HAVING COUNT(*) > 3;
---17. Find departments where average salary is greater than 60000.
-SELECT department, AVG(salary) AS average_salary FROM Employees GROUP BY department
-HAVING AVG(salary) > 60000;
---18. Find cities having more than 2 employees.
-SELECT city, COUNT(*) AS employee_count FROM Employees GROUP BY city
-HAVING COUNT(*) > 2;
---19. Find departments where total salary is greater than 200000.
-SELECT department, SUM(salary) AS total_salary FROM Employees GROUP BY department
-HAVING SUM(salary) > 200000;
---20. Find departments where maximum salary is above 90000.
-SELECT department, MAX(salary) AS max_salary  FROM Employees GROUP BY department
-HAVING MAX(salary) > 90000;
-
-
---++++++++++++++++++++++++
--- TOP Queries
---++++++++++++++++++++++++
-
---21. Display top 5 highest paid employees.
+--21Q) Display top 5 highest paid employees.
 SELECT * FROM Employees ORDER BY salary DESC LIMIT 5;
---22. Display top 3 employees with highest experience.
+--22Q) Display top 3 employees with highest experience.
 SELECT * FROM Employees ORDER BY experience DESC LIMIT 3;
---23. Display top 2 salaries from Finance department.
+--23Q) Display top 2 salaries from Finance department.
 SELECT * FROM Employees WHERE department = 'Finance' ORDER BY salary DESC LIMIT 2;
---24. Display top 4 employees from Hyderabad.
+--24Q) Display top 4 employees from Hyderabad.
 SELECT * FROM Employees WHERE city = 'Hyderabad' LIMIT 4;
---25. Display top 1 highest salary employee.
+--25Q) Display top 1 highest salary employee.
 SELECT * FROM Employees ORDER BY salary DESC LIMIT 1;
 
-
 --++++++++++++++++++++++++
--- DISTINCT Queries
---++++++++++++++++++++++++
-
---26. Display distinct department names.
-SELECT DISTINCT department FROM Employees;
---27. Display distinct city names.
-SELECT DISTINCT city FROM Employees;
---28. Display distinct salary values.
-SELECT DISTINCT salary FROM Employees;
---29. Display distinct combinations of department and city.
-SELECT DISTINCT department, city FROM Employees;
---30. Display distinct experience values.
-SELECT DISTINCT experience FROM Employees;
-
-
---++++++++++++++++++++++++
--- COMPARISON OPERATORS Queries
+-- HAVING Clause Queries(5)
 --++++++++++++++++++++++++
 
---31. Find employees with salary >= 80000.
-SELECT * FROM Employees WHERE salary >= 80000;
---32. Find employees with experience <= 3.
-SELECT * FROM Employees WHERE experience <= 3;
---33. Find employees whose salary <> 45000.
-SELECT * FROM Employees WHERE salary <> 45000;
---34. Find employees with salary < 50000.
-SELECT * FROM Employees WHERE salary < 50000;
---35. Find employees with experience > 5.
-SELECT * FROM Employees WHERE experience > 5;
+--26Q) Select departments with more than 2 employees.
+SELECT department_id, COUNT(*) AS employee_count FROM Employee GROUP BY department_id HAVING COUNT(*) > 2;
+--27Q) Select departments with an average salary greater than 55000.
+SELECT department_id, AVG(salary) AS avg_salary FROM Employee GROUP BY department_id HAVING AVG(salary) > 55000;
+--28Q) Select years with more than 1 employee hired.
+SELECT YEAR(hire_date) AS hire_year, COUNT(*) AS employee_count FROM Employee GROUP BY YEAR(hire_date) HAVING COUNT(*) > 1;
+--29Q) Select departments with total salary less than 100000.
+SELECT department_id, SUM(salary) AS total_salary FROM Employee GROUP BY department_id HAVING SUM(salary) < 100000;
+--30Q) Select departments with maximum salary greater than 75000.
+SELECT department_id, MAX(salary) AS highest_salary FROM Employee GROUP BY department_id HAVING MAX(salary) > 75000;
 
 
 --++++++++++++++++++++++++
--- LOGICAL OPERATORS Queries
+-- ORDER BY Queries(5)
 --++++++++++++++++++++++++
 
---36. Find employees from IT department AND salary greater than 70000.
-SELECT * FROM Employees WHERE department = 'IT' AND salary > 70000;
---37. Find employees from Hyderabad OR Bangalore.
-SELECT * FROM Employees WHERE city = 'Hyderabad' OR city = 'Bangalore';
---38. Find employees from HR department AND experience less than 3.
-SELECT * FROM Employees WHERE department = 'HR' AND experience < 3;
---39. Find employees with salary greater than 60000 OR experience greater than 6.
-SELECT * FROM Employees WHERE salary > 60000 OR experience > 6;
---40. Find employees NOT from Sales department.
-SELECT * FROM Employees WHERE department != 'Sales';
-
-
---++++++++++++++++++++++++
--- IN AND NOT IN Queries
---++++++++++++++++++++++++
-
---41. Find employees working in ('Hyderabad', 'Mumbai').
-SELECT * FROM Employees WHERE city IN ('Hyderabad', 'Mumbai');
---42. Find employees whose department IN ('IT', 'Finance').
-SELECT * FROM Employees WHERE department IN ('IT', 'Finance');
---43. Find employees whose city NOT IN ('Chennai', 'Pune').
-SELECT * FROM Employees WHERE city NOT IN ('Chennai', 'Pune');
---44. Find employees whose salary IN (45000, 75000, 91000).
-SELECT * FROM EmployeesWHERE salary IN (45000, 75000, 91000);
---45. Find employees whose department NOT IN ('HR', 'Sales').
-SELECT * FROM Employees WHERE department NOT IN ('HR', 'Sales');
+--31Q) Select employees ordered by salary.
+SELECT * FROM Employee ORDER BY salary ASC;
+--32Q) Select employees ordered by age descending.
+SELECT * FROM Employee ORDER BY age DESC;
+--33Q) Select employees ordered by hire date.
+SELECT * FROM Employee ORDER BY hire_date ASC;
+--34Q) Select employees ordered by department and salary.
+SELECT * FROM Employee ORDER BY department_id, salary ASC;
+--35Q) Select departments ordered by total salary.
+SELECT department_id, SUM(salary) AS total_salary FROM Employee GROUP BY department_id ORDER BY total_salary DESC;
 
 
 --++++++++++++++++++++++++
--- BETWEEN Queries
+-- JOIN Queries(10)
 --++++++++++++++++++++++++
 
---46. Find employees with salary BETWEEN 50000 AND 80000.
-SELECT * FROM Employees WHERE salary BETWEEN 50000 AND 80000;
---47. Find employees with experience BETWEEN 3 AND 6.
-SELECT * FROM EmployeesWHERE experience BETWEEN 3 AND 6;
---48. Find employees whose emp_id BETWEEN 105 AND 112.
-SELECT * FROM Employees WHERE emp_id BETWEEN 105 AND 112;
---49. Find employees with salary NOT BETWEEN 40000 AND 60000.
-SELECT * FROM Employees WHERE salary NOT BETWEEN 40000 AND 60000;
---50. Find employees with experience BETWEEN 2 AND 4.
-SELECT * FROM Employees WHERE experience BETWEEN 2 AND 4;
+--36Q) Select employee names with department names.
+SELECT e.name AS employee_name, d.name AS department_name FROM Employee e JOIN Department d ON e.department_id = d.department_id;
+--37Q) Select project names with department names.
+SELECT p.name AS project_name, d.name AS department_name FROM Project p JOIN Department d ON p.department_id = d.department_id;
+--38Q) Select project names with employee names.
+SELECT p.name AS project_name, e.name AS employee_name FROM Project p JOIN Employee e ON p.department_id = e.department_id;
+--39Q) Select all employees and their departments.
+SELECT e.name, d.name FROM Employee e LEFT JOIN Department d ON e.department_id = d.department_id;
+--40Q) Select all departments and their employees.
+SELECT d.name, e.name FROM Department d LEFT JOIN Employee e ON d.department_id = e.department_id;
+--41Q) Select employees not assigned to any project.
+SELECT e.name FROM Employee e LEFT JOIN Project p ON e.department_id = p.department_id WHERE p.project_id IS NULL;
+--42Q) Select employees and number of projects.
+SELECT e.name, COUNT(p.project_id) AS total_projects FROM Employee e LEFT JOIN Project p ON e.department_id = p.department_id GROUP BY e.name;
+--43Q) Select departments with no employees.
+SELECT d.name FROM Department d LEFT JOIN Employee e ON d.department_id = e.department_id WHERE e.emp_id IS NULL;
+--44Q) Select employees in same department as John Doe.
+SELECT name FROM Employee WHERE department_id = (SELECT department_id FROM Employee WHERE name = 'John Doe');
+--45Q) Select department with highest average salary.
+SELECT d.name, AVG(e.salary) AS avg_salary FROM Department d JOIN Employee e ON e.department_id = d.department_id GROUP BY d.name ORDER BY AVG(e.salary) DESC LIMIT 1;
 
 
 --++++++++++++++++++++++++
--- LIKE OPERATOR Queries
+-- Subquery Queries(10)
 --++++++++++++++++++++++++
 
---51. Find employees whose names start with 'R'.
-SELECT * FROM Employees WHERE emp_name LIKE 'R%';
---52. Find employees whose names end with 'a'.
-SELECT * FROM Employees WHERE emp_name LIKE '%a';
---53. Find employees whose names contain 'v'.
-SELECT * FROM Employees WHERE emp_name LIKE '%v%';
---54. Find employees whose city starts with 'B'.
-SELECT * FROM Employees WHERE city LIKE 'B%';
---55. Find employees whose department ends with 's'.
-SELECT * FROM Employees WHERE department LIKE '%s';
+--46Q) Select employee with highest salary.
+SELECT * FROM Employee WHERE salary = (SELECT MAX(salary) FROM Employee);
+--47Q) Select employees earning above average salary.
+SELECT * FROM Employee WHERE salary > (SELECT AVG(salary) FROM Employee);
+--48Q) Select second highest salary.
+SELECT MAX(salary) AS second_highest_salary FROM Employee WHERE salary < (SELECT MAX(salary) FROM Employee);
+--49Q) Select department with most employees.
+SELECT department_id, COUNT(*) AS employee_count FROM Employee GROUP BY department_id ORDER BY employee_count DESC LIMIT 1;
+--50Q) Select employees earning above department average.
+SELECT name, salary, department_id FROM Employee e WHERE salary > (SELECT AVG(salary) FROM Employee WHERE department_id = e.department_id);
+--51Q) Select 3rd highest salary.
+SELECT DISTINCT salary FROM Employee ORDER BY salary DESC LIMIT 1 OFFSET 2;
+--52Q) Select employees older than all HR employees.
+SELECT * FROM Employee WHERE age > ALL (SELECT age FROM Employee WHERE department_id = (SELECT department_id FROM Department WHERE Department.name = 'HR'));
+--53Q) Select departments with average salary greater than 55000.
+SELECT department_id FROM Employee GROUP BY department_id HAVING AVG(salary) > 55000;
+--54Q) Select employees working in departments with at least 2 projects.
+SELECT DISTINCT e.name FROM Employee e JOIN Project p ON e.department_id = p.department_id GROUP BY e.name, e.department_id HAVING COUNT(p.project_id) >= 2;
+--55Q) Select employees hired on same date as Jane Smith.
+SELECT name FROM Employee WHERE hire_date = (SELECT hire_date FROM Employee WHERE name = 'Jane Smith');
+
+
+--++++++++++++++++++++++++
+-- Advanced Queries(10)
+--++++++++++++++++++++++++
+
+--56Q) Select total salary of employees hired in 2020.
+SELECT SUM(salary) AS total_salary FROM Employee WHERE YEAR(hire_date) = 2020;
+--57Q) Select average salary by department ordered descending.
+SELECT department_id, AVG(salary) AS avg_salary FROM Employee GROUP BY department_id ORDER BY avg_salary DESC;
+--58Q) Select departments with more than 1 employee and average salary above 55000.
+SELECT department_id, COUNT(*) AS employee_count, AVG(salary) AS avg_salary FROM Employee GROUP BY department_id HAVING COUNT(*) > 1 AND AVG(salary) > 55000;
+--59Q) Select employees hired in last 2 years.
+SELECT * FROM Employee WHERE hire_date >= DATE_SUB(CURDATE(), INTERVAL 2 YEAR) ORDER BY hire_date ASC;
+--60Q) Select total employees and average salary for departments with more than 2 employees.
+SELECT department_id, COUNT(*) AS employee_count, AVG(salary) AS avg_salary FROM Employee GROUP BY department_id HAVING COUNT(*) > 2;
+--61Q) Select employees earning above department average salary.
+SELECT name, salary FROM Employee e WHERE salary > (SELECT AVG(salary) FROM Employee WHERE department_id = e.department_id);
+--62Q) Select employees hired on earliest hire date.
+SELECT name FROM Employee WHERE hire_date = (SELECT MIN(hire_date) FROM Employee);
+--63Q) Select departments with total projects.
+SELECT d.name, COUNT(p.project_id) AS total_projects FROM Department d LEFT JOIN Project p ON d.department_id = p.department_id GROUP BY d.name ORDER BY total_projects DESC;
+--64Q) Select highest salary employee in each department.
+SELECT e.name, e.department_id, e.salary FROM Employee e WHERE salary = (SELECT MAX(salary) FROM Employee WHERE department_id = e.department_id);
+--65Q) Select employees older than department average age.
+SELECT name, salary FROM Employee e WHERE age > (SELECT AVG(age) FROM Employee WHERE department_id = e.department_id);
