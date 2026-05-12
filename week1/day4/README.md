@@ -3,14 +3,6 @@
 
 sql practice assignment using window functions and ctes with employee, customer, and order datasets.
 
-## project structure
-
-```text
-week1/
-└── day4/
-    └── sql_window_function_starter.sql
-```
-
 ## topics covered
 
 - row_number()
@@ -45,7 +37,8 @@ week1/
 
 1. open db scribble
 2. open `week1/day4/sql_window_function_starter.sql`
-3. run the queries
+3. open `week1/day4/window_function_assignment(queries).sql`
+4. run the queries
 
 ## learning outcomes
 
