@@ -16,8 +16,8 @@ This repository contains SQL practice questions and solutions using:
 ```text
 week1/
  └── day6/
-      ├── JOINS.sql
-      ├── DATE_TIMESTAMP_FUNCTIONS.sql
+      ├── joins.sql
+      ├── Date_Manipulations.sql
       └── README.md
 ```
 
