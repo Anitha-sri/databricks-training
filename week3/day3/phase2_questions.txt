@@ -1,1 +1,49 @@
+==================================================
+SQL TO PYSPARK PHASE 2 - REVISED BRIDGE PACK
+==================================================
+OBJECTIVE
+Bridge the gap between basic SQL and PySpark by solving real-world data engineering problems using joins, aggregations, filtering, and data cleaning.
 
+--------------------------------------------------
+DATASETS
+--------------------------------------------------
+- customers.csv
+- orders.csv
+
+--------------------------------------------------
+STARTER CODE
+--------------------------------------------------
+customers = spark.read.option("header", "true").csv("/samples/customers.csv")
+orders = spark.read.option("header", "true").csv("/samples/orders.csv")
+customers.show()
+orders.show()
+customers.printSchema()
+orders.printSchema()
+
+--------------------------------------------------
+DATA CLEANING
+--------------------------------------------------
+Before solving the exercises, remove rows with missing customer_id from both datasets.
+
+customers = customers.dropna(subset=["customer_id"])
+orders = orders.dropna(subset=["customer_id"])
+
+--------------------------------------------------
+PRACTICE EXERCISES
+--------------------------------------------------
+
+1. Calculate the total order amount for each customer.
+2. Find the top 3 customers by total spend.
+3. Find customers who have no orders.
+4. Calculate city-wise total revenue.
+5. Find the average order amount per customer.
+6. Find customers with more than one order.
+7. Sort customers by total spend in descending order.
+
+--------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------
+• Write the SQL solution first.
+• Convert the SQL solution into PySpark.
+• Execute both solutions and compare the outputs.
+• Focus on understanding how SQL joins, filters, and aggregations map to PySpark DataFrame transformations.
