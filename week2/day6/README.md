@@ -1,57 +1,40 @@
-# Introduction to PySpark - Sample Data Generation
+# SQL Window Functions Practice
 
-This repository is an introduction to **PySpark** for beginners. It demonstrates how to generate a large dataset using PySpark and Python, which can be used to practice data engineering concepts such as data cleaning, transformations, and ETL pipelines.
+This repository contains SQL practice examples for understanding and working with **Window Functions**. The script uses sample datasets to demonstrate how window functions operate on rows without changing the underlying result set.
 
-The project creates **20,000 sample records** containing common real-world data quality issues like **NULL values**, **duplicate records**, **negative values**, and **updated records**. These scenarios help students understand how data is processed and cleaned before analysis.
+## Contents
 
-## What You'll Learn
+- Sample `employees` table
+- Sample `orders` table
+- Practice queries using:
+  - `row_number()`
+  - `rank()`
+  - `dense_rank()`
+- Examples with `partition by`
+- Examples with `order by`
+- Group-wise and overall ranking scenarios
 
-* Creating a Spark Session
-* Generating sample data using Python
-* Creating a PySpark DataFrame
-* Displaying DataFrame records
-* Writing DataFrames to CSV
-* Understanding common data quality issues
-* Preparing data for Bronze, Silver, and Gold layers
+## Topics Covered
 
-## Dataset Columns
-
-* `order_id`
-* `customer_id`
-* `product`
-* `category`
-* `city`
-* `date`
-* `amount`
-* `quantity`
-
-## Data Quality Issues Included
-
-* NULL values
-* Duplicate records
-* Negative values
-* Updated records
-
-## Who Is This For?
-
-* Beginners learning PySpark
-* Students learning Data Engineering
-* Anyone practicing DataFrame operations
-* ETL and Pipeline beginners
+- Window Functions
+- Row Numbering
+- Ranking
+- Dense Ranking
+- Partitioning Data
+- Sorting Within Partitions
+- Employee Data Analysis
+- Order Data Analysis
 
 ## Prerequisites
 
-* Python
-* Apache Spark
-* PySpark
+- Basic SQL
+- Familiarity with `select` statements
+- Any SQL database such as:
+  - MySQL 8.0+
+  - PostgreSQL
+  - SQL Server
+  - Oracle
 
-## How to Use
+## Purpose
 
-1. Run the PySpark script.
-2. Generate the sample dataset.
-3. Save the data as a CSV file.
-4. Load the CSV into PySpark.
-5. Practice data cleaning and transformations.
-
-Happy Learning! 🚀
-
+This file is designed for practicing SQL Window Functions commonly asked in interviews and used in real-world data analysis. It provides simple examples to help understand how different ranking functions work with and without partitions.
