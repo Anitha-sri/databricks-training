@@ -1,1 +1,30 @@
+----------------------------------------------
+Phase 4A – Bucketing & Segmentation in PySpark
+----------------------------------------------
+##Objective
 
+Understand how continuous data is converted into categories (bucketing/segmentation) and learn
+multiple ways to implement it in PySpark
+
+ ##Reading Assignments
+
+1. Window Functions: https://www.sparkplayground.com/tutorials/pyspark/window-functions
+2. Filtering Data: https://www.sparkplayground.com/tutorials/pyspark/filtering-data
+3. Grouping Data: https://www.sparkplayground.com/tutorials/pyspark/grouping-data
+
+---------------------------
+Practice Tasks(QUESTIONS)
+----------------------------
+1. Create Gold/Silver/Bronze segmentation using conditional logic-
+2. Group data by segment and count customers- 
+3. Try quantile-based segmentation- 
+4. Compare results of different methods- 
+5. Reflect: which method is most useful and why?
+
+##Reflection Questions
+
+1 Why do we convert continuous values into categories?
+2- What is the difference between business segmentation and technical bucketing?
+3- When would fixed thresholds fail?
+4- How does quantile-based segmentation differ from fixed rules?
+5- Which method would you use in real-world  projects?
