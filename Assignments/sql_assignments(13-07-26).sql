@@ -1,6 +1,3 @@
-                                                              -- ----------------------------------
-                                                              -- Sql Assignment-1(13-07-2026)
-                                                              -- -----------------------------------
 -- -----------------
 -- Table creation
 -- -----------------
@@ -32,12 +29,8 @@ INSERT INTO Employees VALUES
 (112, 'Nisha', 'Finance', 88000, 'Bangalore', 7),
 (113, 'Tarun', 'Sales', 46000, 'Chennai', 2),
 (114, 'Kavya', 'IT', 97000, 'Hyderabad', 9),
-(115, 'Manoj', 'Finance', 58000, 'Mumbai', 4);.
+(115, 'Manoj', 'Finance', 58000, 'Mumbai', 4);
 
-
--- -------------
--- Assignment 
--- -------------
 
   -- *SELECT*  
 -- Display all employee details.
@@ -134,6 +127,7 @@ select emp_name,department,experience from Employees where department='HR' and e
 select emp_name,salary,experience from Employees where experience>6 or salary >60000;
 -- Find employees NOT from Sales department.
 select emp_name,department from Employees where not department= 'Sales';
+
 
 -- IN AND NOT IN
 -- Find employees working in ('Hyderabad', 'Mumbai').
